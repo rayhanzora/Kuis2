@@ -9,6 +9,7 @@ public class Kuis29Rayhan {
         int n = sc.nextInt();
         int totalPendapatan = 0;
         int totalUsia = 0;
+        int usia12 = 0, usiaTua = 0;
 
         for (int i = 0; i <= n; i++) {
             System.out.print("Usia pengunjung ke-" + (i + 1) + ": ");
@@ -18,12 +19,21 @@ public class Kuis29Rayhan {
                 break;
             }
             
+            if (usia < 1 || usia > 80) {
+                System.out.println("Input tidak valid, ulangi");
+                System.out.print("Usia pengunjung ke-" + (i + 1) + ": ");
+                usia = sc.nextInt();
+
+            }
             // Harga tiket: usia di bawah 12 tahun Rp 25000, selain itu Rp 40000
             int harga = 0;
             if (usia < 12) {
                 harga = 25000;
             } else {
                 harga = 40000;
+            }
+            if (usia < 12) {
+                usia12++;
             }
             totalPendapatan += harga;
             totalUsia += usia;
@@ -34,5 +44,7 @@ public class Kuis29Rayhan {
         System.out.println("=== REKAP HARIAN ===");
         System.out.println("Total pendapatan : Rp " + totalPendapatan);
         System.out.println("Rata-rata usia   : " + rataUsia + " tahun");
+        System.out.println("Jumlah pengunjung anak dibawah 12 tahun: " + usia12);
+        System.out.println("Jumlah pengunjung usia tua: " + usiaTua);
     }
 }
